@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity(name="categorie")
@@ -24,7 +26,10 @@ public class Categorie {
 	@Column(name="description")
 	private String description;
 	
-	
+	@ManyToOne
+	// Côté porteur de la clé FK => @JoinColumn
+	@JoinColumn(name = "produit_id", referencedColumnName = "id_produit" )
+	  private Produit produit; 
 	// ######################Champs##################//
 
 	// #################Constructeur###############//
@@ -51,12 +56,22 @@ public class Categorie {
 		this.photo = photo;
 		this.description = description;
 	}
+	//constructeur avec Produit
+	public Categorie(Long idCategorie, String nomCategorie, byte photo, String description, Produit produit) {
+		super();
+		this.idCategorie = idCategorie;
+		this.nomCategorie = nomCategorie;
+		this.photo = photo;
+		this.description = description;
+		this.produit = produit;
+	}
 	
 	// #################Encapsulation#############//
 
 	public Long getIdCategorie() {
 		return idCategorie;
 	}
+	
 	
 	public void setIdCategorie(Long idCategorie) {
 		this.idCategorie = idCategorie;
@@ -81,6 +96,14 @@ public class Categorie {
 	}
 	
 	
+	public Produit getProduit() {
+		return produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
 	// #################ToString#################//
 	@Override
 	public String toString() {

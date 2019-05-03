@@ -1,10 +1,14 @@
 package com.intiformation.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity(name="produit")
@@ -35,7 +39,9 @@ public class Produit {
 	@Column(name="selectionne")
 	private boolean selectionne;
 	
-
+	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
+    private List<Categorie> ListCategorie;
+	
 	
 	//#################Constructeur###############//
 	//constructeur vide 
@@ -67,12 +73,25 @@ public class Produit {
 		this.prix = prix;
 		this.selectionne = selectionne;
 	}
-	
+	//Constructeur avec la categorie
+	public Produit(Long idProduit, String designation, String description, String photo, int quantite, double prix,
+			boolean selectionne, List<Categorie> listCategorie) {
+		super();
+		this.idProduit = idProduit;
+		this.designation = designation;
+		this.description = description;
+		this.photo = photo;
+		this.quantite = quantite;
+		this.prix = prix;
+		this.selectionne = selectionne;
+		ListCategorie = listCategorie;
+	}
 	//#################Encapsulation#############//
 	
 	public Long getIdProduit() {
 		return idProduit;
 	}
+	
 	
 	public void setIdProduit(Long idProduit) {
 		this.idProduit = idProduit;
@@ -115,8 +134,19 @@ public class Produit {
 	}
 
 	
+	
 	//#################ToString###################//
 	
+	
+
+	public List<Categorie> getListCategorie() {
+		return ListCategorie;
+	}
+
+	public void setListCategorie(List<Categorie> listCategorie) {
+		ListCategorie = listCategorie;
+	}
+
 	@Override
 	public String toString() {
 		return "Produit [idProduit=" + idProduit + ", designation=" + designation + ", description=" + description

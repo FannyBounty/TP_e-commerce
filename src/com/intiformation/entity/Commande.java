@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity(name="commande")
 @Table(name="commandes")
@@ -20,6 +22,11 @@ public class Commande {
 	
 	@Column(name="date_commande")
 	private Date dateCommande;
+	
+	@ManyToOne
+	// Côté porteur de la clé FK => @JoinColumn
+	@JoinColumn(name = "client_id", referencedColumnName = "id_client" )
+	  private Client client; 
 	
 	
 	// #################Constructeur###############//
@@ -47,6 +54,13 @@ public class Commande {
 		this.dateCommande = dateCommande;
 	}
 
+	//Constructeur avec le client 
+	public Commande(Long idCommande, Date dateCommande, Client client) {
+		super();
+		this.idCommande = idCommande;
+		this.dateCommande = dateCommande;
+		this.client = client;
+	}
 
 	
 	
@@ -56,6 +70,8 @@ public class Commande {
 		return idCommande;
 	}
 
+
+	
 
 	public void setIdCommande(Long idCommande) {
 		this.idCommande = idCommande;
@@ -69,6 +85,17 @@ public class Commande {
 
 	public void setDateCommande(Date dateCommande) {
 		this.dateCommande = dateCommande;
+	}
+
+	
+
+	public Client getClient() {
+		return client;
+	}
+
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 

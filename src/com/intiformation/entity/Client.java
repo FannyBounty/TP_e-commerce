@@ -1,10 +1,14 @@
 package com.intiformation.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity(name="client")
@@ -30,7 +34,8 @@ public class Client {
 	@Column(name="tel")
 	private String tel;
 	
-
+	@OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
+    private List<Commande> ListCommande;
 	
 	//#################Constructeur###############//
 	//constructeur vide 
@@ -58,7 +63,19 @@ public class Client {
 		this.adresse = adresse;
 		this.tel = tel;
 	}
-	
+	//constructeur avec le client 
+
+
+	public Client(Long idClient, String nomClient, String email, String adresse, String tel,
+			List<Commande> listCommande) {
+		super();
+		this.idClient = idClient;
+		this.nomClient = nomClient;
+		this.email = email;
+		this.adresse = adresse;
+		this.tel = tel;
+		ListCommande = listCommande;
+	}
 	
 	//#################Encapsulation#############//
 	
@@ -66,6 +83,16 @@ public class Client {
 		return idClient;
 	}
 	
+	
+
+	public List<Commande> getListCommande() {
+		return ListCommande;
+	}
+
+	public void setListCommande(List<Commande> listCommande) {
+		ListCommande = listCommande;
+	}
+
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
 	}
@@ -93,6 +120,7 @@ public class Client {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	
 	
 	
 	//#################ToString#################//
