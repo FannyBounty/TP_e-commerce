@@ -1,5 +1,6 @@
 package com.intiformation.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity(name="role")
 @Table(name="roles")
+
 public class Role {
 
 	// ######################Champs##################//
