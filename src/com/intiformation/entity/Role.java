@@ -1,5 +1,5 @@
 package com.intiformation.entity;
-
+// Verification du changement
 public class Role {
 
 	// ######################Champs##################//
