@@ -1,10 +1,23 @@
 package com.intiformation.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="ligneCommande")
+@Table(name="ligneCommandes")
 public class LigneCommande {
 
 	// ######################Champs##################//
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="quantite")
 	private int quantite;
+	
+	@Column(name="prix")
 	private double prix;
 	
 	

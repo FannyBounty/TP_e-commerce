@@ -2,10 +2,23 @@ package com.intiformation.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity(name="commande")
+@Table(name="commandes")
 public class Commande {
 
 	// ######################Champs##################//
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_commande")
 	private Long idCommande;
+	
+	@Column(name="date_commande")
 	private Date dateCommande;
 	
 	

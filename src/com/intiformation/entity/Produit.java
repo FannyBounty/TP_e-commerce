@@ -1,14 +1,38 @@
 package com.intiformation.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="produit")
+@Table(name="produits")
 public class Produit {
 	
 	//######################Champs##################//
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_produit")
 	private Long idProduit;
+	
+	@Column(name="designation")
 	private String designation;
+	
+	@Column(name="description")
 	private String description;
+	
+	@Column(name="photo")
 	private String photo;
+	
+	@Column(name="quantite")
 	private int quantite;
+	
+	@Column(name="prix")
 	private double prix;
+	
+	@Column(name="selectionne")
 	private boolean selectionne;
 	
 

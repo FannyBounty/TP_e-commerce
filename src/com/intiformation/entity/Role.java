@@ -1,10 +1,24 @@
 package com.intiformation.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="role")
+@Table(name="roles")
 public class Role {
 
 	// ######################Champs##################//
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_role")
 	private Long idRole;
+	
+	@Column(name="role_name")
 	private String roleName;
 	
 

@@ -1,11 +1,30 @@
 package com.intiformation.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="user")
+@Table(name="users")
 public class User {
 
 	// ######################Champs##################//
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_user")
 	private Long idUser;
+	
+	@Column(name="user_name")
 	private String userName;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="actived")
 	private boolean actived;
 	
 	
@@ -59,7 +78,12 @@ public class User {
 		this.actived = actived;
 	}
 	
+	
 
 	// #################ToString#################//
-
+	@Override
+	public String toString() {
+		return "User [idUser=" + idUser + ", userName=" + userName + ", password=" + password + ", actived=" + actived
+				+ "]";
+	}
 }

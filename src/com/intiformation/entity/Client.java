@@ -1,13 +1,33 @@
 package com.intiformation.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="client")
+@Table(name="clients")
 public class Client {
 	
 
 	//######################Champs##################//
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_client")
 	private Long idClient;
+	
+	@Column(name="nom_client")
 	private String nomClient;
+	
+	@Column(name="email_client")
 	private String email;
+	
+	@Column(name="adresse")
 	private String adresse;
+	
+	@Column(name="tel")
 	private String tel;
 	
 

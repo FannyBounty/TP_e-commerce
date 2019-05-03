@@ -1,10 +1,27 @@
 package com.intiformation.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="categorie")
+@Table(name="categories")
 public class Categorie {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_categorie")
 	private Long idCategorie;
+	
+	@Column(name="nom_categorie")
 	private String nomCategorie;
+	
+	@Column(name="photo")
 	private byte photo;
+	@Column(name="description")
 	private String description;
 	
 	
