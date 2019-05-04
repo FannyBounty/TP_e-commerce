@@ -32,82 +32,10 @@ public class BoutiqueMetierImpl implements IAdminCategoriesMetier {
 		this.sf = sf;
 	}
 
-	@Transactional
-	@Override
-	public void supprimerProduit(Long idProd) {
-		sf.getCurrentSession().delete(trouverProduit(idProd));
-	}
-
-	@Transactional
-	@Override
-	public void modifierProduit(Produit prod) {
-		sf.getCurrentSession().update(prod);
-	}
-
-	@Transactional
 	@Override
 	public Long ajouterCategorie(Categorie cat) {
 		sf.getCurrentSession().save(cat);
 		return cat.getIdCategorie();
-	}
-
-	@Transactional(readOnly=true)
-	@Override
-	public List<Categorie> listeCategories() {
-		return sf.getCurrentSession().createQuery("FROM categories").list();
-	}
-
-	@Transactional(readOnly=true)
-	@Override
-	public Categorie trouverCategorie(Long idCat) {
-		return sf.getCurrentSession().get(Categorie.class, idCat);
-	}
-
-	@Transactional
-	@Override
-	public Long ajouterProduit(Produit prod, Long idCat) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Transactional(readOnly=true)
-	@Override
-	public List<Produit> listerProduits() {
-		return sf.getCurrentSession().createQuery("FROM produits").list();
-	}
-
-	@Transactional(readOnly=true)
-	@Override
-	public List<Produit> trouverProduitsParMotCle(String mc) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Transactional(readOnly=true)
-	@Override
-	public List<Produit> trouverProduitsParCategorie(Long idCat) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Transactional(readOnly=true)
-	@Override
-	public List<Produit> trouverProduitsSelectionnes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Transactional(readOnly=true)
-	@Override
-	public Produit trouverProduit(Long idProd) {
-		return sf.getCurrentSession().get(Produit.class, idProd);
-	}
-
-	@Transactional
-	@Override
-	public Commande enregistrerCommande(Panier p, Client c) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -115,24 +43,82 @@ public class BoutiqueMetierImpl implements IAdminCategoriesMetier {
 		sf.getCurrentSession().delete(trouverCategorie(idCat));
 	}
 
-	@Transactional
 	@Override
 	public void modifierCategorie(Categorie cat) {
 		sf.getCurrentSession().update(cat);
 	}
 
-	@Transactional
 	@Override
 	public void ajouterUser(User user) {
 		sf.getCurrentSession().save(user);
 	}
 
-	@Transactional
 	@Override
 	public void attribuerRole(Role role, Long userID) {
-		User user = sf.getCurrentSession().get(User.class, userID);
-		role.setUser(user);
-		sf.getCurrentSession().update(role);
+		// TODO Auto-generated method stub
+		
 	}
+
+	@Override
+	public Long ajouterProduit(Produit prod, Long idCat) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void supprimerProduit(Long idProd) {
+		sf.getCurrentSession().delete(trouverProduit(idProd));
+	}
+
+	@Override
+	public void modifierProduit(Produit prod) {
+		sf.getCurrentSession().update(prod);
+	}
+
+	@Override
+	public List<Categorie> listerCategories() {
+		return sf.getCurrentSession().createQuery("FROM categories").list();
+	}
+
+	@Override
+	public Categorie trouverCategorie(Long idCat) {
+		return sf.getCurrentSession().get(Categorie.class, idCat);
+	}
+
+	@Override
+	public List<Produit> listerProduits() {
+		return sf.getCurrentSession().createQuery("FROM produits").list();
+	}
+
+	@Override
+	public List<Produit> trouverProduitsParMotCle(String mc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Produit> trouverProduitsParCategorie(Long idCat) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Produit> trouverProduitsSelectionnes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Produit trouverProduit(Long idProd) {
+		return sf.getCurrentSession().get(Produit.class, idProd);
+	}
+
+	@Override
+	public Commande enregistrerCommande(Panier panier, Client client) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 }
