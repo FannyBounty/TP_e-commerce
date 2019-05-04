@@ -19,7 +19,7 @@ public interface IBoutiqueDAO {
 	
 	public void supprimerCategorie(Long idCat);
 	
-	public void modifierCategorie(Long idCat);
+	public void modifierCategorie(Categorie cat);
 	
 	public Long ajouterProduit(Produit prod, Long idCat);
 	

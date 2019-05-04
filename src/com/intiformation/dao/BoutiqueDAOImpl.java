@@ -37,36 +37,33 @@ public class BoutiqueDAOImpl implements IBoutiqueDAO {
 	@Transactional
 	@Override
 	public Long ajouterCategorie(Categorie cat) {
-		// TODO Auto-generated method stub
-		return null;
+		sf.getCurrentSession().save(cat);
+		
+		return cat.getIdCategorie();
 	}
 
 	@Transactional(readOnly=true)
 	@Override
 	public List<Categorie> listeCategories() {
-		// TODO Auto-generated method stub
-		return null;
+		return sf.getCurrentSession().createQuery("FROM categories").list();
 	}
 
 	@Transactional(readOnly=true)
 	@Override
 	public Categorie trouverCategorie(Long idCat) {
-		// TODO Auto-generated method stub
-		return null;
+		return sf.getCurrentSession().get(Categorie.class, idCat);
 	}
 
 	@Transactional
 	@Override
 	public void supprimerCategorie(Long idCat) {
-		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().delete(trouverCategorie(idCat));
 	}
 
 	@Transactional
 	@Override
-	public void modifierCategorie(Long idCat) {
-		// TODO Auto-generated method stub
-		
+	public void modifierCategorie(Categorie cat) {
+		sf.getCurrentSession().update(cat);
 	}
 
 	@Transactional
@@ -76,11 +73,10 @@ public class BoutiqueDAOImpl implements IBoutiqueDAO {
 		return null;
 	}
 
-	@Transactional(readOly=true)
+	@Transactional(readOnly=true)
 	@Override
 	public List<Produit> listerProduits() {
-		// TODO Auto-generated method stub
-		return null;
+		return sf.getCurrentSession().createQuery("FROM produits").list();
 	}
 
 	@Transactional(readOnly=true)
@@ -107,29 +103,25 @@ public class BoutiqueDAOImpl implements IBoutiqueDAO {
 	@Transactional(readOnly=true)
 	@Override
 	public Produit trouverProduit(Long idProd) {
-		// TODO Auto-generated method stub
-		return null;
+		return sf.getCurrentSession().get(Produit.class, idProd);
 	}
 
 	@Transactional
 	@Override
 	public void supprimerProduit(Long idProd) {
-		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().delete(trouverProduit(idProd));
 	}
 
 	@Transactional
 	@Override
 	public void modifierProduit(Produit prod) {
-		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().update(prod);
 	}
 
 	@Transactional
 	@Override
 	public void ajouterUser(User user) {
-		// TODO Auto-generated method stub
-		
+		sf.getCurrentSession().save(user);
 	}
 
 	@Transactional
