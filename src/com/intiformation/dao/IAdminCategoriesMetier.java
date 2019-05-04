@@ -3,8 +3,9 @@ package com.intiformation.dao;
 import com.intiformation.entity.Categorie;
 import com.intiformation.entity.Role;
 import com.intiformation.entity.User;
+import com.intiformation.service.IAdminProduitService;
 
-public interface IAdminCategoriesMetier extends IAdminProduitMetier {
+public interface IAdminCategoriesMetier extends IAdminProduitService {
 	
 	public Long ajouterCategorie(Categorie cat);
 	
