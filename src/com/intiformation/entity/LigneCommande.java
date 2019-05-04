@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity(name="ligneCommande")
@@ -14,13 +16,19 @@ public class LigneCommande {
 	// ######################Champs##################//
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_lignecommande")
+	private Long idLigneCommande;
+
 	@Column(name="quantite")
 	private int quantite;
 	
 	@Column(name="prix")
 	private double prix;
 	
-	
+	@ManyToOne
+	// Côté porteur de la clé FK => @JoinColumn
+	@JoinColumn(name = "panier_id", referencedColumnName = "id_panier" )
+	private Panier panier; 
 	
 	// #################Constructeur###############//
 	
@@ -30,14 +38,30 @@ public class LigneCommande {
 	}
 
 	// Constructeur chargé
-	public LigneCommande(int quantite, double prix) {
-		super();
+	public LigneCommande(Long idLigneCommande, int quantite, double prix) {
+		this.idLigneCommande = idLigneCommande;
 		this.quantite = quantite;
 		this.prix = prix;
 	}
 
+	// Constructeur chargé avec Panier
+	public LigneCommande(Long idLigneCommande, int quantite, double prix, Panier panier) {
+		this.idLigneCommande = idLigneCommande;
+		this.quantite = quantite;
+		this.prix = prix;
+		this.panier = panier;
+	}
+
 	
 	// #################Encapsulation#############//
+	public Long getIdLigneCommande() {
+		return idLigneCommande;
+	}
+	
+	public void setIdLigneCommande(Long idLigneCommande) {
+		this.idLigneCommande = idLigneCommande;
+	}
+	
 	public int getQuantite() {
 		return quantite;
 	}
@@ -54,7 +78,13 @@ public class LigneCommande {
 		this.prix = prix;
 	}
 
-	
+	public Panier getPanier() {
+		return panier;
+	}
+
+	public void setPanier(Panier panier) {
+		this.panier = panier;
+	}
 
 	// #################ToString#################//
 	@Override
