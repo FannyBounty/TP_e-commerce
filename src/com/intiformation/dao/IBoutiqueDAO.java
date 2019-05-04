@@ -13,7 +13,7 @@ public interface IBoutiqueDAO {
 	
 	public Long ajouterCategorie(Categorie cat);
 	
-	public List<Categorie> listeCategories();
+	public List<Categorie> listerCategories();
 	
 	public Categorie trouverCategorie(Long idCat);
 	

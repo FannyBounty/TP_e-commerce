@@ -17,13 +17,15 @@ import com.intiformation.entity.User;
 
 @Repository
 public class BoutiqueMetierImpl implements IAdminCategoriesMetier {
-	
+
+	/* ========== Attributs ========== */
 	private IBoutiqueDAO dao;
 	
 	// déclaration de la session factory d'hibernate
 	@Autowired
 	private SessionFactory sf;
-	
+
+	/* ========== Setters ========== */
 	/**
 	 * Setter pour injection spring
 	 * @param sf
@@ -32,6 +34,7 @@ public class BoutiqueMetierImpl implements IAdminCategoriesMetier {
 		this.sf = sf;
 	}
 
+	/* ========== Méthodes implémentées ========== */
 	@Override
 	public Long ajouterCategorie(Categorie cat) {
 		sf.getCurrentSession().save(cat);
@@ -119,6 +122,4 @@ public class BoutiqueMetierImpl implements IAdminCategoriesMetier {
 		return null;
 	}
 	
-	
-
 }

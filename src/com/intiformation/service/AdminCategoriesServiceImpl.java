@@ -16,11 +16,13 @@ import com.intiformation.entity.User;
 
 @Service
 public class AdminCategoriesServiceImpl implements IAdminCategoriesService {
-	
+
+	/* ========== Attributs ========== */
 	// déclaration du dao pour injection spring
 	@Autowired
 	private IAdminCategoriesMetier adminCategoriesDao;
 
+	/* ========== Setters ========== */
 	/**
 	 * Setter pour injection spring
 	 * @param fonctionnaireDao
@@ -29,6 +31,7 @@ public class AdminCategoriesServiceImpl implements IAdminCategoriesService {
 		this.adminCategoriesDao = adminCategoriesDao;
 	}
 
+	/* ========== Méthodes implémentées ========== */
 	@Override
 	public Long addProduit(Produit prod, Long idCat) {
 		return adminCategoriesDao.ajouterProduit(prod, idCat);
@@ -41,7 +44,7 @@ public class AdminCategoriesServiceImpl implements IAdminCategoriesService {
 
 	@Override
 	public void updateProduit(Produit prod) {
-		adminCategoriesDao.supprimerProduit(idProd);
+		adminCategoriesDao.supprimerProduit(prod);
 	}
 
 	@Override
@@ -108,7 +111,5 @@ public class AdminCategoriesServiceImpl implements IAdminCategoriesService {
 	public void assignRole(Role role, Long userID) {
 		adminCategoriesDao.attribuerRole(role, userID);
 	}
-	
-	
 
 }

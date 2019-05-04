@@ -14,11 +14,13 @@ import com.intiformation.entity.Produit;
 
 @Service
 public class AdminProduitServiceImpl implements IAdminProduitService {
-	
+
+	/* ========== Attributs ========== */
 	// déclaration du dao pour injection spring
 	@Autowired
 	private IAdminProduitMetier adminProduitDao;
 
+	/* ========== Setters ========== */
 	/**
 	 * Setter pour injection spring
 	 * @param adminProduitDao
@@ -27,6 +29,7 @@ public class AdminProduitServiceImpl implements IAdminProduitService {
 		this.adminProduitDao = adminProduitDao;
 	}
 
+	/* ========== Méthodes implémentées ========== */
 	@Override
 	public List<Categorie> listCategories() {
 		return adminProduitDao.listerCategories();

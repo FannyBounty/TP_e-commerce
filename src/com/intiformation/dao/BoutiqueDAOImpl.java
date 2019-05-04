@@ -22,10 +22,12 @@ import com.intiformation.entity.User;
 @Repository
 public class BoutiqueDAOImpl implements IBoutiqueDAO {
 	
+	/* ========== Attributs ========== */
 	// déclaration de la session factory d'hibernate
 	@Autowired
 	private SessionFactory sf;
-	
+
+	/* ========== Setters ========== */
 	/**
 	 * Setter pour injection spring
 	 * @param sf
@@ -34,6 +36,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDAO {
 		this.sf = sf;
 	}
 
+	/* ========== Méthodes implémentées ========== */
 	@Transactional
 	@Override
 	public Long ajouterCategorie(Categorie cat) {
@@ -44,7 +47,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDAO {
 
 	@Transactional(readOnly=true)
 	@Override
-	public List<Categorie> listeCategories() {
+	public List<Categorie> listerCategories() {
 		return sf.getCurrentSession().createQuery("FROM categories").list();
 	}
 
