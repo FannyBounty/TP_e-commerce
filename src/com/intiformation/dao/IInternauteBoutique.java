@@ -1,5 +1,7 @@
 package com.intiformation.dao;
 
+import java.util.List;
+
 import com.intiformation.entity.Categorie;
 import com.intiformation.entity.Client;
 import com.intiformation.entity.Commande;

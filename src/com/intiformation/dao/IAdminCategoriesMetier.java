@@ -4,7 +4,7 @@ import com.intiformation.entity.Categorie;
 import com.intiformation.entity.Role;
 import com.intiformation.entity.User;
 
-public interface IAdminCategoriesMetier {
+public interface IAdminCategoriesMetier extends IAdminProduitMetier {
 	
 	public Long ajouterCategorie(Categorie cat);
 	

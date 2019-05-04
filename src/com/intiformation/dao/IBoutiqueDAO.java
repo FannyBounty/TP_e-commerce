@@ -1,8 +1,11 @@
 package com.intiformation.dao;
 
+import java.util.List;
+
 import com.intiformation.entity.Categorie;
 import com.intiformation.entity.Client;
 import com.intiformation.entity.Commande;
+import com.intiformation.entity.Panier;
 import com.intiformation.entity.Produit;
 import com.intiformation.entity.User;
 
@@ -36,6 +39,6 @@ public interface IBoutiqueDAO {
 	
 	public void ajouterUser(User user);
 	
-	public Commande enregistrerCommande(GestionPanier p, Client c);
+	public Commande enregistrerCommande(Panier p, Client c);
 
 }
