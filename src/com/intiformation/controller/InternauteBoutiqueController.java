@@ -27,22 +27,42 @@ public class InternauteBoutiqueController {
 		return "";
 	}
 	
+	/**
+	 * Permet de récupérer les produits de la BDD par catégorie.
+	 * @return
+	 */
 	public String getProdByCat() {
 		return "";
 	}
 	
+	/**
+	 * Permet de récupérer la liste des produits sélectionnés
+	 * @return
+	 */
 	public String getProdSelectionnes() {
 		return "";
 	}
 	
+	/**
+	 * Permet de récupérer les produits correspondant au mot-clé
+	 * @return
+	 */
 	public String getProdByKeyWords() {
 		return "";
 	}
 	
+	/**
+	 * Permet d'ajouter un produit au panier
+	 * @return
+	 */
 	public String addProdPanier() {
 		return "";
 	}
 	
+	/**
+	 * Permet de supprimer un produit du panier
+	 * @return
+	 */
 	public String suppProdPanier() {
 		return "";
 	}
