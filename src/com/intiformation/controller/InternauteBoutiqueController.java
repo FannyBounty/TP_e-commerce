@@ -21,6 +21,30 @@ public class InternauteBoutiqueController {
 	public void setInternauteManager(IInternauteService internauteManager) {
 		this.internauteManager = internauteManager;
 	}
+
+	/* ========== Méthodes ========= */
+	public String index() {
+		return "";
+	}
 	
+	public String getProdByCat() {
+		return "";
+	}
+	
+	public String getProdSelectionnes() {
+		return "";
+	}
+	
+	public String getProdByKeyWords() {
+		return "";
+	}
+	
+	public String addProdPanier() {
+		return "";
+	}
+	
+	public String suppProdPanier() {
+		return "";
+	}
 
 }

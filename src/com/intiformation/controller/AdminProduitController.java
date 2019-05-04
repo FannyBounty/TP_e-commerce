@@ -21,6 +21,26 @@ public class AdminProduitController {
 	public void setAdminProduitManager(IAdminProduitService adminProduitManager) {
 		this.adminProduitManager = adminProduitManager;
 	}
+
+	/* ========== Méthodes ========= */
+	public String index() {
+		return "";
+	}
 	
+	public String saveProd() {
+		return "";
+	}
+	
+	public byte[] photoCat() {
+		return null;
+	}
+	
+	public String suppProd() {
+		return "";
+	}
+	
+	public String editProd() {
+		return "";
+	}
 
 }

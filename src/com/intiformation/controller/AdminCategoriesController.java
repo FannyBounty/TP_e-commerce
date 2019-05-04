@@ -21,6 +21,26 @@ public class AdminCategoriesController {
 	public void setAdminCategoriesManager(IAdminCategoriesService adminCategoriesManager) {
 		this.adminCategoriesManager = adminCategoriesManager;
 	}
+
+	/* ========== Méthodes ========= */
+	public String index() {
+		return "";
+	}
 	
+	public String saveProd() {
+		return "";
+	}
+	
+	public byte[] getPhoto() {
+		return null;
+	}
+	
+	public String suppCat() {
+		return "";
+	}
+	
+	public String editCat() {
+		return "";
+	}
 
 }
