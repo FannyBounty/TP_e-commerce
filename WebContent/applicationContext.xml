@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<!-- ===================================================================== -->
+	<!-- ++++++++ activer la détection auto des beans (composants) +++++++++++ -->
+	<!-- ===================================================================== -->
+	<context:component-scan base-package="com.intiformation"/>
+
+	<!-- ============================================================ -->
+	<!-- ++++++++ Localisation des fichiers de propriétés +++++++++++ -->
+	<!-- ============================================================ -->
+	<context:property-placeholder location="/WEB-INF/jbdc.properties" />
+	
+	<!-- ============================================================ -->
+	<!-- ======= Déclaration du bean de la DataSource =============== -->
+	<!-- ============================================================ -->
+	<bean id="dataSourceBean"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="url" value="${db.url}" />
+		<property name="driverClassName" value="${db.driverClass}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	
+	<!-- ============================================================ -->
+	<!-- ======= Déclaration du bean de la SessionFactory =========== -->
+	<!-- ============================================================ -->
+	<bean id="sessionFactoryBean"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+
+		<!-- injection du bean du DataSource dans le bean de la sessionFactory -->
+		<property name="dataSource" ref="dataSourceBean" />
+
+		<!-- proriétés d'hibernates -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${db.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${db.hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${db.hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+
+		<!-- déclaration des classes annotées avec les annotations JPA -->
+		<property name="annotatedClasses">
+			<list>
+				<value>com.intiformation.entity</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- ============================================================================ -->
+	<!-- ++++++++ Déclaration du gestionnaire des transactions de spring ++++++++++++ -->
+	<!-- ============================================================================ -->
+	<bean id="transactionManagerBean" 
+	      class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	      
+	      <!-- association du gestionnaire à la sessionFactory (injection de la SF) -->
+	      <property name="sessionFactory" ref="sessionFactoryBean"/>
+	      
+	</bean>
+	
+	<!-- ============================================================================================== -->
+	<!-- ++++++++ Activer la détection des anntations pour les transactions (@Transactionnel)++++++++++++ -->
+	<!-- =============================================================================================== -->
+	<tx:annotation-driven transaction-manager="transactionManagerBean"/>
+	
+</beans>
