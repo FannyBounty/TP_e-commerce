@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+	<!-- 
+		> Pour integrer Spring avec JSF, on utilise un resolveur de variable JSF 
+				>>>permet de resoudre des varaible JSF en bean spring 
+				>>>pointer avec l'el de jsf les bean de spring -->
+				
+<!-- ///Déclaration du resolvers de variabl jsf en bean spring  -->
+<application>
+	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver.class</el-resolver>
+</application>
+<!-- declaration du managed bean -->
+<!-- <managed-bean> -->
+<!-- 	<managed-bean-name>distanceBean</managed-bean-name> -->
+<!-- 	<managed-bean-class>com/intiformation/distance/managedBean/DistanceVilleMb</managed-bean-class> -->
+<!-- 	<managed-bean-scope>session</managed-bean-scope> -->
+
+
+
+<!-- Injection du nbean du servivce dan sles prop 'distance manager du MB  -->
+
+<!-- <managed-property> -->
+<!-- 	<property-name>distanceManager</property-name> -->
+ 	<!-- On pointe avec l'el de jsf le bean qpring du service  --> 
+<!-- 	<value>#{villeServiceBean}</value> -->
+<!-- </managed-property> -->
+
+
+<!-- </managed-bean> -->
+</faces-config>
