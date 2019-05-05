@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin - Produits / Formulaire d'ajout</title>
+<title>FLY Admin - Produits / Formulaire d'ajout</title>
 </head>
 <body>
 

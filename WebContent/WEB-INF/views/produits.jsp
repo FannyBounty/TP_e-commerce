@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin - Produits</title>
+<title>FLY Admin - Produits</title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 		
 			<!--  Section ajout d'un produit -->
 			<tr>
-				<td colspan="4" align="left">
+				<td colspan="5" align="left">
 					<a href="${pageContext.request.contextPath}/addProduit" style="background-color: lightblue;">
 					Ajouter un nouveau produit
 					</a> 
