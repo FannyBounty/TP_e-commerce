@@ -25,6 +25,7 @@ public class Categorie implements Serializable{
 	
 	@Column(name="photo")
 	private byte photo;
+	
 	@Column(name="description")
 	private String description;
 	

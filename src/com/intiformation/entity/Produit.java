@@ -40,7 +40,7 @@ public class Produit implements Serializable{
 	@Column(name="selectionne")
 	private boolean selectionne;
 	
-	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
     private List<Categorie> ListCategorie;
 	
 	
