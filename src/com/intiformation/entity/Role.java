@@ -1,6 +1,7 @@
 package com.intiformation.entity;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 @Entity(name="role")
 @Table(name="roles")
 
-public class Role {
+public class Role implements Serializable{
 
 	// ######################Champs##################//
 	

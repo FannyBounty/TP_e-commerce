@@ -1,5 +1,6 @@
 package com.intiformation.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity(name="commande")
 @Table(name="commandes")
-public class Commande {
+public class Commande implements Serializable{
 
 	// ######################Champs##################//
 	@Id

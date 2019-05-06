@@ -1,5 +1,6 @@
 package com.intiformation.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity(name="client")
 @Table(name="clients")
-public class Client {
+public class Client implements Serializable{
 	
 
 	//######################Champs##################//
@@ -34,7 +35,7 @@ public class Client {
 	@Column(name="tel")
 	private String tel;
 	
-	@OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Commande> ListCommande;
 	
 	//#################Constructeur###############//

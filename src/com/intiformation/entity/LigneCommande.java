@@ -1,5 +1,7 @@
 package com.intiformation.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity(name="ligneCommande")
 @Table(name="ligneCommandes")
-public class LigneCommande {
+public class LigneCommande implements Serializable{
 
 	// ######################Champs##################//
 	@Id

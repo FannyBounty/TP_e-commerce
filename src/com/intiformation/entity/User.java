@@ -1,5 +1,6 @@
 package com.intiformation.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity(name="user")
 @Table(name="users")
-public class User {
+public class User implements Serializable{
 
 	// ######################Champs##################//
 	
@@ -31,7 +32,7 @@ public class User {
 	@Column(name="actived")
 	private boolean actived;
 	
-	@OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Role> ListRole;
 	// #################Constructeur###############//
 	// constructeur vide

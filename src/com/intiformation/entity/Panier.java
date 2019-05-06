@@ -1,5 +1,6 @@
 package com.intiformation.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 
 //@Entity(name="panier")
 //@Table(name="paniers")
-public class Panier {
+public class Panier implements Serializable{
 
 	// ######################Champs##################//
 	//@Id
