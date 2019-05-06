@@ -1,6 +1,5 @@
 package com.intiformation.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity(name="produit")
 @Table(name="produits")
-public class Produit implements Serializable{
+public class Produit{
 	
 	//######################Champs##################//
 	@Id
@@ -134,12 +133,6 @@ public class Produit implements Serializable{
 		this.selectionne = selectionne;
 	}
 
-	
-	
-	//#################ToString###################//
-	
-	
-
 	public List<Categorie> getListCategorie() {
 		return ListCategorie;
 	}
@@ -147,7 +140,8 @@ public class Produit implements Serializable{
 	public void setListCategorie(List<Categorie> listCategorie) {
 		ListCategorie = listCategorie;
 	}
-
+	
+	//#################ToString###################//
 	@Override
 	public String toString() {
 		return "Produit [idProduit=" + idProduit + ", designation=" + designation + ", description=" + description

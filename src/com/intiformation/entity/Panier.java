@@ -1,6 +1,5 @@
 package com.intiformation.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,17 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity(name="panier")
-//@Table(name="paniers")
-public class Panier implements Serializable{
+@Entity(name="panier")
+@Table(name="paniers")
+public class Panier{
 
 	// ######################Champs##################//
-	//@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-	//@Column(name="id_lignecommande")
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_panier")
 	private Long idPanier;
 	
-	//@OneToMany(mappedBy = "ligneCommande", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "panier", cascade = CascadeType.ALL)
     private List<LigneCommande> ListLigneCommande;
 	
 	//#################Constructeur###############//

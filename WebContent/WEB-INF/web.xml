@@ -30,12 +30,10 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-					/WEB-INF/gestionnairecommerce-servlet.xml /WEB-INF/applicationContext.xml
+					/WEB-INF/gestionnairecommerce-servlet.xml
+					/WEB-INF/applicationContext.xml
 		</param-value>
 	</context-param>
-
-
-
 
 	<!-- ##################### Page de démarrage ################################### -->
 	<welcome-file-list>
