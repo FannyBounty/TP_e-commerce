@@ -1,6 +1,5 @@
 package com.intiformation.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity(name="user")
 @Table(name="users")
-public class User implements Serializable{
+public class User{
 
 	// ######################Champs##################//
 	
@@ -84,8 +83,6 @@ public class User implements Serializable{
 		this.actived = actived;
 	}
 	
-	
-
 	// #################ToString#################//
 	@Override
 	public String toString() {

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity(name="categorie")
 @Table(name="categories")
-public class Categorie implements Serializable{
+public class Categorie{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
