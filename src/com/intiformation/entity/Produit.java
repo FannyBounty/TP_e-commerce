@@ -39,7 +39,7 @@ public class Produit{
 	@Column(name="selectionne")
 	private boolean selectionne;
 	
-	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
     private List<Categorie> ListCategorie;
 	
 	
