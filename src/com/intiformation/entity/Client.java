@@ -1,6 +1,7 @@
 package com.intiformation.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -35,8 +36,8 @@ public class Client implements Serializable{
 	@Column(name="tel")
 	private String tel;
 	
-	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Commande> ListCommande;
+	//@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    //private List<Commande> ListCommande;
 	
 	//#################Constructeur###############//
 	//constructeur vide 
@@ -75,7 +76,7 @@ public class Client implements Serializable{
 		this.email = email;
 		this.adresse = adresse;
 		this.tel = tel;
-		ListCommande = listCommande;
+		this.ListCommande = listCommande;
 	}
 	
 	//#################Encapsulation#############//

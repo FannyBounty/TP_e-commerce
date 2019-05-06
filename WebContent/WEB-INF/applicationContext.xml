@@ -54,7 +54,7 @@
 				<value>com.intiformation.entity.Client</value>
 				<value>com.intiformation.entity.Commande</value>
 				<value>com.intiformation.entity.LigneCommande</value>
-				<!-- <value>com.intiformation.entity.Panier</value> -->
+				<value>com.intiformation.entity.Panier</value>
 				<value>com.intiformation.entity.Produit</value>
 				<value>com.intiformation.entity.Role</value>
 				<value>com.intiformation.entity.User</value>
