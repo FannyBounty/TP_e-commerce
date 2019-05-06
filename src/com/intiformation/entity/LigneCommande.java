@@ -25,11 +25,6 @@ public class LigneCommande{
 	@Column(name="prix")
 	private double prix;
 	
-	@ManyToOne
-	// Côté porteur de la clé FK => @JoinColumn
-	@JoinColumn(name = "panier_id", referencedColumnName = "id_panier" )
-	private Panier panier; 
-	
 	// #################Constructeur###############//
 	
 	// constructeur vide
@@ -42,14 +37,6 @@ public class LigneCommande{
 		this.idLigneCommande = idLigneCommande;
 		this.quantite = quantite;
 		this.prix = prix;
-	}
-
-	// Constructeur chargé avec Panier
-	public LigneCommande(Long idLigneCommande, int quantite, double prix, Panier panier) {
-		this.idLigneCommande = idLigneCommande;
-		this.quantite = quantite;
-		this.prix = prix;
-		this.panier = panier;
 	}
 
 	
@@ -76,14 +63,6 @@ public class LigneCommande{
 
 	public void setPrix(double prix) {
 		this.prix = prix;
-	}
-
-	public Panier getPanier() {
-		return panier;
-	}
-
-	public void setPanier(Panier panier) {
-		this.panier = panier;
 	}
 
 	// #################ToString#################//
