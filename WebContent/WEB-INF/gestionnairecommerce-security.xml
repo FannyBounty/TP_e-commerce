@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+
+	<!-- ///////////////////////////////////////////////////// -->
+	<!-- ///// Configuration de la stratégie de sécurité ///// -->
+	<!-- ///////////////////////////////////////////////////// -->																			 -->
+
+	<!-- ////////// Authentification avec formulaire ////////// -->
+	<security:http auto-config="true" use-expressions="true">
+	
+		<security:intercept-url pattern="/categorie*" access="hasAnyRole('ROLE_ADMIN_CAT')"/>
+		<security:intercept-url pattern="/produit*" access="hasAnyRole('ROLE_ADMIN_PROD','ROLE_ADMIN_CAT')"/>
+		
+		<!-- Formulaire d'authentification : formulaire personnalisé -->
+		<!-- 
+			> login-page="/login.jsp" = URL affichant notre formulaire
+			> default-target-url="/messageList*" = URL de redirection si l'authentification a réussi
+			> authentication-failure-url="/login.jsp?error=true" = URL de redirection si l'authentification a échoué
+			> login-processing-url="/login" = URL sur laquelle Spring Security attend les paramètres d'authentification
+												par défaut : /login. ref à action de login.jsp
+			> username-parameter / password-parameter = fait ref à l'attribut 'name' de login.jsp pour username et password
+		 -->
+		<security:form-login login-page="/login.jsp"
+							 default-target-url="/categories/liste"
+							 authentication-failure-url="/login.jsp?error=true"
+							 login-processing-url="/login"
+							 username-parameter="username"
+							 password-parameter="password"
+							  />
+							  
+		<!-- Déconnexion de l'utilisateur -->
+		<security:logout logout-success-url="/login.jsp?logout_message=true"
+						 logout-url="/logout"
+						 />
+						 
+		<!-- Protection contre les attaques CSRF-->
+		<security:csrf disabled="true" /> <!-- désactivation de la protection -->
+		
+		<!--  Définition de la stratégie de refus d'accès à utiliser (403 Access Denied) -->
+		<security:access-denied-handler error-page="/403.jsp"/>
+						<!--  au lieu de subir la page d'erreur du serveur, on va rediriger vers notre propre page -->
+	
+	</security:http>
+	
+	<!-- //////////////////////////////////////////////////////////////// -->
+	<!-- ///// Définition des utilisateurs autorisés avec leur rôle ///// -->
+	<!-- //////////////////////////////////////////////////////////////// -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSourceBean"
+										users-by-username-query="SELECT username, password, 'true' as actived FROM users WHERE username=?"
+										authorities-by-username-query="SELECT u.username, r.role_name
+																	   FROM users u, roles r
+																	   WHERE u.username = ?
+																	   		AND u.id_user = r.user_id"
+			/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+</beans>
