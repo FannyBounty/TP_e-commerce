@@ -67,7 +67,6 @@
 
 		<!-- association du gestionnaire à la sessionFactory (injection de la SF) -->
 		<property name="sessionFactory" ref="sessionFactoryBean" />
-
 	</bean>
 
 	<!-- ============================================================================================== -->
