@@ -25,6 +25,7 @@ public class Categorie{
 	
 	@Column(name="photo")
 	private byte photo;
+	
 	@Column(name="description")
 	private String description;
 	
