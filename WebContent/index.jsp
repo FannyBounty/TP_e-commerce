@@ -9,5 +9,6 @@
 </head>
 <body>
 	<h1>!!! Lien vers index_eboutique.jsp !!!</h1>
+	<% response.sendRedirect("eboutique*"); %>
 </body>
 </html>

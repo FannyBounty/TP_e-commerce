@@ -7,28 +7,32 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-<!-- ===================================================================== -->
+	<!-- ===================================================================== -->
 	<!-- ++++++++ activer la détection auto des beans (composants) +++++++++++ -->
 	<!-- ===================================================================== -->
-	<context:component-scan base-package="com.intiformation"/>
+	<context:component-scan
+		base-package="com.intiformation" />
 
 	<!-- ============================================================ -->
 	<!-- ++++++++ Localisation des fichiers de propriétés +++++++++++ -->
 	<!-- ============================================================ -->
-	<context:property-placeholder location="/WEB-INF/jbdc.properties" />
-	
+	<context:property-placeholder
+		location="/WEB-INF/jbdc.properties" />
+
 	<!-- ============================================================ -->
 	<!-- ======= Déclaration du bean de la DataSource =============== -->
 	<!-- ============================================================ -->
 	<bean id="dataSourceBean"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
-		<property name="url" value="jdbc:mysql://localhost:3306/db_tp_e-commerce" />
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/db_tp_e-commerce" />
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
-	
+
 	<!-- ============================================================ -->
 	<!-- ======= Déclaration du bean de la SessionFactory =========== -->
 	<!-- ============================================================ -->
@@ -48,33 +52,29 @@
 		</property>
 
 		<!-- déclaration des classes annotées avec les annotations JPA -->
-		<property name="annotatedClasses">
+		<property name="annotatedPackages">
 			<list>
-				<value>com.intiformation.entity.Categorie</value>
-				<value>com.intiformation.entity.Client</value>
-				<value>com.intiformation.entity.Commande</value>
-				<value>com.intiformation.entity.LigneCommande</value>
-				<value>com.intiformation.entity.Produit</value>
-				<value>com.intiformation.entity.Role</value>
-				<value>com.intiformation.entity.User</value>
+				<value>com.intiformation.entity</value>
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- ============================================================================ -->
 	<!-- ++++++++ Déclaration du gestionnaire des transactions de spring ++++++++++++ -->
 	<!-- ============================================================================ -->
-	<bean id="transactionManagerBean" 
-	      class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-	      
-	      <!-- association du gestionnaire à la sessionFactory (injection de la SF) -->
-	      <property name="sessionFactory" ref="sessionFactoryBean"/>
-	      
+	<bean id="transactionManagerBean"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+
+		<!-- association du gestionnaire à la sessionFactory (injection de la SF) -->
+		<property name="sessionFactory" ref="sessionFactoryBean" />
+
 	</bean>
-	
+
 	<!-- ============================================================================================== -->
-	<!-- ++++++++ Activer la détection des anntations pour les transactions (@Transactionnel)++++++++++++ -->
+	<!-- ++++++++ Activer la détection des anntations pour les transactions 
+		(@Transactionnel)++++++++++++ -->
 	<!-- =============================================================================================== -->
-	<tx:annotation-driven transaction-manager="transactionManagerBean"/>
-	
+	<tx:annotation-driven
+		transaction-manager="transactionManagerBean" />
+
 </beans>
